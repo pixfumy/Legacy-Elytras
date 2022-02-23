@@ -4,7 +4,6 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.client.input.Input;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -13,11 +12,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ClientPlayerEntity.class)
-public class ExampleMixin extends AbstractClientPlayerEntity {
+public class ClientPlayerEntityMixin extends AbstractClientPlayerEntity {
 	@Shadow public Input input;
+	public boolean isFlying;
 	private int ticksSinceOnGround = 0;
 
-	public ExampleMixin(World world, GameProfile gameProfile) {
+	public ClientPlayerEntityMixin(World world, GameProfile gameProfile) {
 		super(world, gameProfile);
 	}
 
