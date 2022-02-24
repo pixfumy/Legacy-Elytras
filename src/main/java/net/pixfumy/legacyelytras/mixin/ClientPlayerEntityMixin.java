@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ClientPlayerEntity.class)
 public class ClientPlayerEntityMixin extends AbstractClientPlayerEntity implements IPlayerEntity {
 	@Shadow public Input input;
-	public boolean isFlying;
+	public boolean isFallFlying;
 	public boolean lastJumping = false;
 	private int ticksSinceOnGround = 0;
 
@@ -29,6 +29,7 @@ public class ClientPlayerEntityMixin extends AbstractClientPlayerEntity implemen
 	private void attemptStartFallFlying(CallbackInfo ci) {
 		if (this.onGround) {
 			this.ticksSinceOnGround = 0;
+			this.stopFallFlying();
 		} else {
 			this.ticksSinceOnGround++;
 		}
@@ -50,16 +51,16 @@ public class ClientPlayerEntityMixin extends AbstractClientPlayerEntity implemen
 
 	@Override
 	public boolean isFallFlying() {
-		return this.isFlying;
+		return this.isFallFlying;
 	}
 
 	@Override
 	public void startFallFlying() {
-		this.isFlying = true;
+		this.isFallFlying = true;
 	}
 
 	@Override
 	public void stopFallFlying() {
-		this.isFlying = false;
+		this.isFallFlying = false;
 	}
 }

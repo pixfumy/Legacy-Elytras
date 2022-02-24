@@ -6,13 +6,14 @@ import net.minecraft.item.FireworkItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.pixfumy.legacyelytras.IFireWorkItem;
+import net.pixfumy.legacyelytras.IPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(FireworkItem.class)
 public class FireworkItemMixin implements IFireWorkItem {
     @Override
     public ItemStack onStartUse(ItemStack stack, World world, PlayerEntity player) {
-        if (true) { //  player.isFallFlying(), do this both client and server side
+        if (((IPlayerEntity)player).isFallFlying()) {
             if (!world.isClient) {
                 FireworkRocketEntity fireworkRocketEntity = new FireworkRocketEntity(world, player.x, player.y, player.z, stack);
                 world.spawnEntity(fireworkRocketEntity);

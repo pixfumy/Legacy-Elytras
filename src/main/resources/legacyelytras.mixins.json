@@ -4,7 +4,9 @@
   "package": "net.pixfumy.legacyelytras.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "FireworkItemMixin"
+    "FireworkItemMixin",
+    "ServerPlayerEntityMixin",
+    "ServerPlayNetworkHandlerMixin"
   ],
   "client": [
     "ClientPlayerEntityMixin"
