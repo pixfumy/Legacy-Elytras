@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "legacy-elytras",
+  "id": "legacyelytras",
   "version": "${version}",
   "name": "Legacy Elytras",
   "description": "Backporting elytras to 1.7 and 1.8.",

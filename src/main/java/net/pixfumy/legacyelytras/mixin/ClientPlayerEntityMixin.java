@@ -32,4 +32,5 @@ public class ClientPlayerEntityMixin extends AbstractClientPlayerEntity {
 			System.out.println("icarus");
 		}
 	}
+	//TODO: account for water and for holding space
 }
