@@ -1,4 +1,4 @@
-package net.pixfumy.legacyelytras;
+package net.pixfumy.legacyelytras.items;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;

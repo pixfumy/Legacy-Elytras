@@ -8,7 +8,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.pixfumy.legacyelytras.IPlayerEntity;
-import net.pixfumy.legacyelytras.ItemElytra;
+import net.pixfumy.legacyelytras.items.ItemElytra;
 import net.pixfumy.legacyelytras.networking.FallFlyingC2SPacket;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -34,6 +34,8 @@ public class ClientPlayerEntityMixin extends AbstractClientPlayerEntity implemen
 		if (this.onGround) {
 			this.ticksSinceOnGround = 0;
 			this.stopFallFlying();
+			this.networkHandler.sendPacket(new FallFlyingC2SPacket((ClientPlayerEntity)(Object)this,
+					FallFlyingC2SPacket.Type.STOP_FALL_FLYING));
 		} else {
 			this.ticksSinceOnGround++;
 		}
@@ -45,6 +47,7 @@ public class ClientPlayerEntityMixin extends AbstractClientPlayerEntity implemen
 			}
 			if (!this.lastJumping && this.ticksSinceOnGround > 3 && !this.isTouchingWater() &&
 					!this.isClimbing() && !this.hasVehicle() && hasUsableElytra) {
+				this.startFallFlying();
 				this.networkHandler.sendPacket(new FallFlyingC2SPacket((ClientPlayerEntity)(Object)this,
 						FallFlyingC2SPacket.Type.START_FALL_FLYING));
 			}

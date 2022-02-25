@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.pixfumy.legacyelytras.Main"
+      "net.pixfumy.legacyelytras.LegacyElytras"
     ]
   },
   "mixins": [

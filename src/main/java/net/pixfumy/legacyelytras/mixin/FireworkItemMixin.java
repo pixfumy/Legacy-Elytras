@@ -5,7 +5,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.FireworkItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.pixfumy.legacyelytras.IFireWorkItem;
+import net.pixfumy.legacyelytras.items.IFireWorkItem;
 import net.pixfumy.legacyelytras.IPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 

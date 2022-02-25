@@ -6,8 +6,9 @@ import net.minecraft.item.FireworkItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.itemgroup.ItemGroup;
 import net.minecraft.util.Identifier;
+import net.pixfumy.legacyelytras.items.ItemElytra;
 
-public class Main implements ModInitializer {
+public class LegacyElytras implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		// too lazy to mixin to Item, let's just re-register the item
