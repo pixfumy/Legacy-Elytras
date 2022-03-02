@@ -10,10 +10,18 @@ import net.pixfumy.legacyelytras.IPlayerEntity;
 import net.pixfumy.legacyelytras.items.ItemElytra;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
 public class PlayerEntityMixin implements IPlayerEntity {
     protected boolean isFallFlying;
+
+    @Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;tickMovement()V"))
+    private void doTickFallFlying(CallbackInfo ci) {
+        this.tickFallFlying();
+    }
 
     @Override
     public boolean isFallFlying() {
@@ -46,5 +54,29 @@ public class PlayerEntityMixin implements IPlayerEntity {
     @Override
     public void stopFallFlying() {
         this.isFallFlying = false;
+    }
+
+    @Override
+    public void tickFallFlying() {
+        boolean bl = this.isFallFlying();
+        if (bl && !((PlayerEntity)(Object)this).onGround && !((PlayerEntity)(Object)this).hasVehicle()) {
+            boolean hasUsableElytra = false;
+            ItemStack chest = ((PlayerEntity)(Object)this).getArmorStacks()[2];
+            if (chest != null && chest.getItem() instanceof ItemElytra && chest.getDamage() < chest.getMaxDamage()) {
+                hasUsableElytra = true;
+            }
+            if (hasUsableElytra) {
+                bl = true;
+            }
+        } else {
+            bl = false;
+        }
+        if (!((PlayerEntity)(Object)this).world.isClient) {
+            if (bl) {
+                this.startFallFlying();
+            } else {
+                this.stopFallFlying();
+            }
+        }
     }
 }

@@ -18,8 +18,8 @@ public class ClientPlayNetworkHandlerMixin implements IClientPlayNetworkHandler 
     @Override
     public void onFallFlying(FallFlyingS2CPacket packet) {
         ClientPlayerEntity player = this.client.player;
-        boolean flying = packet.fallFlying;
-        if (flying) {
+        boolean fallFlying = packet.fallFlying;
+        if (fallFlying) {
             ((IPlayerEntity)player).startFallFlying();
         } else {
             ((IPlayerEntity)player).stopFallFlying();

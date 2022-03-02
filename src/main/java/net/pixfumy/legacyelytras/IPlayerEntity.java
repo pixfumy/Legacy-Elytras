@@ -9,4 +9,5 @@ public interface IPlayerEntity {
     public boolean checkFallFlying();
     public void startFallFlying();
     public void stopFallFlying();
+    public void tickFallFlying();
 }
