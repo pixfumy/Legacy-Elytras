@@ -29,8 +29,10 @@ public class PlayerEntityMixin implements IPlayerEntity {
             if (chest != null && chest.getItem() instanceof ItemElytra && chest.getDamage() < chest.getMaxDamage()) {
                 hasUsableElytra = true;
             }
-            this.startFallFlying();
-            return true;
+            if (hasUsableElytra) {
+                this.startFallFlying();
+                return true;
+            }
         }
         this.stopFallFlying();
         return false;

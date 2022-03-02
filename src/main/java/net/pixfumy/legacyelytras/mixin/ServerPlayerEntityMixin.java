@@ -19,8 +19,6 @@ public class ServerPlayerEntityMixin {
 
     @Inject(method = "tick", at = @At(value = "TAIL"))
     private void sendFallFlyingPacket(CallbackInfo ci) {
-        if (((IPlayerEntity)this).isFallFlying()) {
-            this.networkHandler.sendPacket(new FallFlyingS2CPacket(((IPlayerEntity)this).checkFallFlying()));
-        }
+        this.networkHandler.sendPacket(new FallFlyingS2CPacket(((IPlayerEntity)this).checkFallFlying()));
     }
 }
