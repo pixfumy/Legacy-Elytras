@@ -1,5 +1,5 @@
 package net.pixfumy.legacyelytras.networking;
 
 public interface IServerPlayNetworkHandler {
-    public void onFallFlying(FallFlyingC2SPacket packet);
+    public void onStartFallFlying(StartFallFlyingC2SPacket packet);
 }

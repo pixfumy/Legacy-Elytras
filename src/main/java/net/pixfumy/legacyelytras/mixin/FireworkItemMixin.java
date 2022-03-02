@@ -13,13 +13,11 @@ import org.spongepowered.asm.mixin.Mixin;
 public class FireworkItemMixin implements IFireWorkItem {
     @Override
     public ItemStack onStartUse(ItemStack stack, World world, PlayerEntity player) {
-        if (((IPlayerEntity)player).isFallFlying()) {
-            if (!world.isClient) {
-                FireworkRocketEntity fireworkRocketEntity = new FireworkRocketEntity(world, player.x, player.y, player.z, stack);
-                world.spawnEntity(fireworkRocketEntity);
-                if (!player.abilities.creativeMode) {
-                    --stack.count;
-                }
+        if (!world.isClient && ((IPlayerEntity)player).checkFallFlying()) {
+            FireworkRocketEntity fireworkRocketEntity = new FireworkRocketEntity(world, player.x, player.y, player.z, stack);
+            world.spawnEntity(fireworkRocketEntity);
+            if (!player.abilities.creativeMode) {
+                --stack.count;
             }
         }
         return stack;
