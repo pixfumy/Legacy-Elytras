@@ -62,8 +62,7 @@ public abstract class LivingEntityMixin {
                     double t = n - s;
                     float u = (float)(t * 10.0D - 3.0D);
                     if (u > 0.0F) {
-                        //thisPlayer.playSound(thisPlayer.method_13070((int)u), 1.0F, 1.0F);
-                        //thisPlayer.damage(DamageSource.FLY_INTO_WALL, u);
+                        thisPlayer.damage(DamageSource.FALL, u);
                     }
                 }
 

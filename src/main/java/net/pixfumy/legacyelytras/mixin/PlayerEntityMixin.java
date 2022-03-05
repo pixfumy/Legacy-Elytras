@@ -71,6 +71,9 @@ public abstract class PlayerEntityMixin implements IPlayerEntity {
             if (hasUsableElytra) {
                 bl = true;
                 this.ticksFallFlying++;
+                if (this.ticksFallFlying % 20 == 0) {
+                    chest.damage(1, (PlayerEntity)(Object)this);
+                }
             }
         } else {
             bl = false;
