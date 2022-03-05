@@ -78,13 +78,15 @@ public abstract class LivingEntityMixin {
 
     @Inject(method = "readCustomDataFromTag", at = @At("TAIL"))
     private void readFlying(CompoundTag tag, CallbackInfo ci) {
-        if (tag.getBoolean("fallFlying")) {
+        if ((LivingEntity)(Object)this instanceof PlayerEntity && tag.getBoolean("fallFlying")) {
             ((IPlayerEntity)this).startFallFlying();
         }
     }
 
     @Inject(method = "writeCustomDataToTag", at = @At("TAIL"))
     private void writeFlying(CompoundTag tag, CallbackInfo ci) {
-        tag.putBoolean("fallFlying", ((IPlayerEntity)this).isFallFlying());
+        if ((LivingEntity)(Object)this instanceof PlayerEntity) {
+            tag.putBoolean("fallFlying", ((IPlayerEntity) this).isFallFlying());
+        }
     }
 }

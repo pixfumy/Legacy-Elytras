@@ -10,11 +10,13 @@ import net.minecraft.util.Identifier;
 import net.pixfumy.legacyelytras.items.ItemElytra;
 
 public class LegacyElytras implements ModInitializer {
+	public static final FireworkItem FIREWORK_ITEM = (FireworkItem) (new FireworkItem()).setTranslationKey("fireworks").setItemGroup(ItemGroup.MISC);
+	public static final ItemElytra ELYTRA = new ItemElytra(ArmorItem.Material.LEATHER, 0, 1);
 
 	@Override
 	public void onInitialize() {
 		// too lazy to mixin to Item, let's just re-register the item
-		Item.REGISTRY.add(401, new Identifier("fireworks"), (new FireworkItem()).setTranslationKey("fireworks").setItemGroup(ItemGroup.MISC));
-		Item.REGISTRY.add(9999, new Identifier("elytra"), new ItemElytra(ArmorItem.Material.CHAIN, 0, 1));
+		Item.REGISTRY.add(401, new Identifier("fireworks"), FIREWORK_ITEM);
+		Item.REGISTRY.add(9999, new Identifier("elytra"), ELYTRA);
 	}
 }

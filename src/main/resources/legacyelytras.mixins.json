@@ -10,7 +10,9 @@
     "PlayerEntityMixin",
     "ClientPlayNetworkHandlerMixin",
     "LivingEntityMixin",
-    "PlayerEntityRendererMixin"
+    "PlayerEntityRendererMixin",
+    "RecipeDispatcherMixin",
+    "SlotMixin"
   ],
   "client": [
     "ClientPlayerEntityMixin"
