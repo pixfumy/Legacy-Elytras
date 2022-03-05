@@ -15,7 +15,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
-public class PlayerEntityMixin implements IPlayerEntity {
+public abstract class PlayerEntityMixin implements IPlayerEntity {
+    @Shadow public abstract void tick();
+
     protected boolean isFallFlying;
     private int ticksFallFlying = 0;
 
@@ -68,9 +70,11 @@ public class PlayerEntityMixin implements IPlayerEntity {
             }
             if (hasUsableElytra) {
                 bl = true;
+                this.ticksFallFlying++;
             }
         } else {
             bl = false;
+            this.ticksFallFlying = 0;
         }
         if (!((PlayerEntity)(Object)this).world.isClient) {
             if (bl) {
@@ -81,6 +85,7 @@ public class PlayerEntityMixin implements IPlayerEntity {
         }
     }
 
+    @Override
     public int getTicksFallFlying() {
         return this.ticksFallFlying;
     }
