@@ -17,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntity.class)
 public class PlayerEntityMixin implements IPlayerEntity {
     protected boolean isFallFlying;
+    private int ticksFallFlying = 0;
 
     @Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;tickMovement()V"))
     private void doTickFallFlying(CallbackInfo ci) {
@@ -31,7 +32,7 @@ public class PlayerEntityMixin implements IPlayerEntity {
     @Override
     public boolean checkFallFlying() {
         ItemStack itemStack;
-        if (!((LivingEntity)(Object)this).onGround && !this.isFallFlying && !((LivingEntity)(Object)this).isTouchingWater()) {
+        if (!((LivingEntity)(Object)this).onGround && !((LivingEntity)(Object)this).isTouchingWater()) {
             boolean hasUsableElytra = false;
             ItemStack chest = ((PlayerEntity)(Object)this).getArmorStacks()[2];
             if (chest != null && chest.getItem() instanceof ItemElytra && chest.getDamage() < chest.getMaxDamage()) {
@@ -78,5 +79,9 @@ public class PlayerEntityMixin implements IPlayerEntity {
                 this.stopFallFlying();
             }
         }
+    }
+
+    public int getTicksFallFlying() {
+        return this.ticksFallFlying;
     }
 }

@@ -27,11 +27,6 @@ public class ClientPlayerEntityMixin extends AbstractClientPlayerEntity{
 		super(world, gameProfile);
 	}
 
-	@Inject(at = @At(value = "HEAD"), method = "tickMovement")
-	private void isFlying(CallbackInfo ci) {
-		System.out.println(((IPlayerEntity)this).isFallFlying());
-	}
-
 	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/input/Input;method_1302()V"), method = "tickMovement")
 	private void setLastJumping(CallbackInfo ci) {
 		this.lastJumping = this.input.jumping;

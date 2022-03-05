@@ -10,4 +10,5 @@ public interface IPlayerEntity {
     public void startFallFlying();
     public void stopFallFlying();
     public void tickFallFlying();
+    public int getTicksFallFlying();
 }
