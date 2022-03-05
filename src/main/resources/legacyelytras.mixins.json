@@ -11,8 +11,7 @@
     "ClientPlayNetworkHandlerMixin",
     "LivingEntityMixin",
     "PlayerEntityRendererMixin",
-    "RecipeDispatcherMixin",
-    "SlotMixin"
+    "RecipeDispatcherMixin"
   ],
   "client": [
     "ClientPlayerEntityMixin"
