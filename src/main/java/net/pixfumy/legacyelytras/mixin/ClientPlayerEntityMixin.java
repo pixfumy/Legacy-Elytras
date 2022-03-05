@@ -7,7 +7,6 @@ import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.pixfumy.legacyelytras.IPlayerEntity;
 import net.pixfumy.legacyelytras.items.ItemElytra;
 import net.pixfumy.legacyelytras.networking.StartFallFlyingC2SPacket;
 import org.spongepowered.asm.mixin.Final;

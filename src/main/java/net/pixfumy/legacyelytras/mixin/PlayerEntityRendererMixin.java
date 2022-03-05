@@ -9,7 +9,7 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.pixfumy.legacyelytras.IPlayerEntity;
+import net.pixfumy.legacyelytras.player.IPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

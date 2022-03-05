@@ -5,7 +5,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.pixfumy.legacyelytras.IPlayerEntity;
+import net.pixfumy.legacyelytras.player.IPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,7 +19,8 @@ public abstract class LivingEntityMixin {
     @Inject(method = "travel", at = @At("HEAD"), cancellable = true)
     private void travelFallFlying(float f, float g, CallbackInfo ci) {
         if (this.canMoveVoluntarily() && ((LivingEntity)(Object)this) instanceof PlayerEntity) {
-            if (((IPlayerEntity)(Object)this).isFallFlying() && !((PlayerEntity)(Object)this).isTouchingLava()) {
+            if (((IPlayerEntity)(Object)this).isFallFlying() && !((PlayerEntity)(Object)this).isTouchingLava()
+                    && !((PlayerEntity)(Object)this).abilities.creativeMode) {
                 PlayerEntity thisPlayer = (PlayerEntity)(Object)this;
                 if (thisPlayer.velocityY > -0.5D) {
                     thisPlayer.fallDistance = 1.0F;

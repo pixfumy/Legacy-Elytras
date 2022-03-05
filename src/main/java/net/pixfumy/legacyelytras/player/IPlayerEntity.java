@@ -1,4 +1,4 @@
-package net.pixfumy.legacyelytras;
+package net.pixfumy.legacyelytras.player;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
