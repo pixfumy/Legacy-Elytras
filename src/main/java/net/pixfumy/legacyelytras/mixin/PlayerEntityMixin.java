@@ -68,6 +68,9 @@ public abstract class PlayerEntityMixin implements IPlayerEntity {
                 if (this.ticksFallFlying % 20 == 0) {
                     chest.damage(1, (PlayerEntity)(Object)this);
                 }
+            } else {
+                bl = false;
+                this.ticksFallFlying = 0;
             }
         } else {
             bl = false;
