@@ -3,6 +3,7 @@ package net.pixfumy.legacyelytras.mixin;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.pixfumy.legacyelytras.player.IPlayerEntity;
@@ -73,5 +74,17 @@ public abstract class LivingEntityMixin {
                 ci.cancel();
             }
         }
+    }
+
+    @Inject(method = "readCustomDataFromTag", at = @At("TAIL"))
+    private void readFlying(CompoundTag tag, CallbackInfo ci) {
+        if (tag.getBoolean("fallFlying")) {
+            ((IPlayerEntity)this).startFallFlying();
+        }
+    }
+
+    @Inject(method = "writeCustomDataToTag", at = @At("TAIL"))
+    private void writeFlying(CompoundTag tag, CallbackInfo ci) {
+        tag.putBoolean("fallFlying", ((IPlayerEntity)this).isFallFlying());
     }
 }
