@@ -27,7 +27,7 @@ Most of the logic for flying is adapted from 1.12, with the exception of the pla
 
 ### Fireworks 
 
-By way of a mixin, a new method onStartUse() is added to the firework class in order to launch the player while flying. Again keeping with the goal of preserving 1.14+ fireworks but also maintaining practicality, the firework item itself is responsible for adding to the player's velocity, unlike in 1.14+ where the firework rocket entity is what propels the player for about 60 ticks per firework. The former way of doing this, the one I decided on, saves us from a lot of interactions between the entity and both the Client and Server player entities. All of the velocity updates are done in the same tick, but their net effect is very close to the ~60 ticks in vanilla 1.14+. 
+By way of a mixin, a new method onStartUse() is added to the firework class in order to launch the player while flying. Again keeping with the goal of preserving 1.11+ fireworks but also maintaining practicality, the firework item itself is responsible for adding to the player's velocity, unlike in 1.11+ where the firework rocket entity is what propels the player for about 60 ticks per firework. The former way of doing this, the one I decided on, saves us from a lot of interactions between the entity and both the Client and Server player entities. All of the velocity updates are done in the same tick, but their net effect is very close to the ~60 ticks in vanilla 1.14+. 
 
 ### Rendering 
 
