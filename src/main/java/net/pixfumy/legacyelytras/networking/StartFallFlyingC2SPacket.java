@@ -9,7 +9,7 @@ import net.minecraft.util.PacketByteBuf;
 
 import java.io.IOException;
 
-public class StartFallFlyingC2SPacket implements Packet {
+public class StartFallFlyingC2SPacket extends Packet {
     public ClientPlayerEntity player;
 
     public StartFallFlyingC2SPacket(ClientPlayerEntity player) {

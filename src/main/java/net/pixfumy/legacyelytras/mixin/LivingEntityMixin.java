@@ -20,7 +20,7 @@ public abstract class LivingEntityMixin {
     @Inject(method = "travel", at = @At("HEAD"), cancellable = true)
     private void travelFallFlying(float f, float g, CallbackInfo ci) {
         if (this.canMoveVoluntarily() && ((LivingEntity)(Object)this) instanceof PlayerEntity) {
-            if (((IPlayerEntity)(Object)this).isFallFlying() && !((PlayerEntity)(Object)this).isTouchingLava()
+            if (((IPlayerEntity)(Object)this).isFallFlying()
                     && !((PlayerEntity)(Object)this).abilities.creativeMode) {
                 PlayerEntity thisPlayer = (PlayerEntity)(Object)this;
                 if (thisPlayer.velocityY > -0.5D) {

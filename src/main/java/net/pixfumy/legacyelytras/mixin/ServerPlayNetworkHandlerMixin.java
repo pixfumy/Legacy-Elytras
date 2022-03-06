@@ -1,6 +1,5 @@
 package net.pixfumy.legacyelytras.mixin;
 
-import net.minecraft.network.NetworkThreadUtils;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.pixfumy.legacyelytras.player.IPlayerEntity;
@@ -16,7 +15,6 @@ public class ServerPlayNetworkHandlerMixin implements IServerPlayNetworkHandler 
 
     @Override
     public void onStartFallFlying(StartFallFlyingC2SPacket packet) {
-        NetworkThreadUtils.forceMainThread(packet, (ServerPlayNetworkHandler)(Object)this, this.player.getServerWorld());
         ((IPlayerEntity)player).checkFallFlying();
     }
 }

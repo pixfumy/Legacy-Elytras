@@ -21,27 +21,18 @@ import java.util.List;
 
 @Mixin(RecipeDispatcher.class)
 public abstract class RecipeDispatcherMixin {
+    private boolean elytraRecipeRegistered = false;
     @Shadow
     private final List<RecipeType> recipes = Lists.newArrayList();
 
     @Shadow public abstract ShapedRecipeType registerShapedRecipe(ItemStack stack, Object... args);
 
-    @Inject(method = "<init>", at = @At("TAIL"))
+    @Inject(method = "registerShapelessRecipe", at = @At("HEAD"))
     private void registerElytraRecipe(CallbackInfo ci) {
-        this.registerShapedRecipe(new ItemStack(LegacyElytras.ELYTRA, 1), "X#X", "WXW", "X X", '#', Blocks.DRAGON_EGG, 'X', Items.LEATHER, 'W', Items.FEATHER);
-        this.registerShapedRecipe(new ItemStack(LegacyElytras.ELYTRA, 1), "X#X", "WXW", "X X", '#', Items.NETHER_STAR, 'X', Items.LEATHER, 'W', Items.FEATHER);
-        Collections.sort(this.recipes, new Comparator<RecipeType>() {
-            public int compare(RecipeType recipeType, RecipeType recipeType2) {
-                if (recipeType instanceof ShapelessRecipeType && recipeType2 instanceof ShapedRecipeType) {
-                    return 1;
-                } else if (recipeType2 instanceof ShapelessRecipeType && recipeType instanceof ShapedRecipeType) {
-                    return -1;
-                } else if (recipeType2.getSize() < recipeType.getSize()) {
-                    return -1;
-                } else {
-                    return recipeType2.getSize() > recipeType.getSize() ? 1 : 0;
-                }
-            }
-        });
+        if (!elytraRecipeRegistered) {
+            this.registerShapedRecipe(new ItemStack(LegacyElytras.ELYTRA, 1), "X#X", "WXW", "X X", '#', Blocks.DRAGON_EGG, 'X', Items.LEATHER, 'W', Items.FEATHER);
+            this.registerShapedRecipe(new ItemStack(LegacyElytras.ELYTRA, 1), "X#X", "WXW", "X X", '#', Items.NETHER_STAR, 'X', Items.LEATHER, 'W', Items.FEATHER);
+            this.elytraRecipeRegistered = true;
+        }
     }
 }
