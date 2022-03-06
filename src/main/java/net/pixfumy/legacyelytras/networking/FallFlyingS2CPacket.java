@@ -9,7 +9,7 @@ import net.minecraft.util.PacketByteBuf;
 
 import java.io.IOException;
 
-public class FallFlyingS2CPacket implements Packet<ClientPlayPacketListener> {
+public class FallFlyingS2CPacket implements Packet {
     public boolean fallFlying;
 
     public FallFlyingS2CPacket(boolean fallFlying) {
@@ -17,17 +17,17 @@ public class FallFlyingS2CPacket implements Packet<ClientPlayPacketListener> {
     }
 
     @Override
-    public void read(PacketByteBuf buf) throws IOException {
+    public void read(PacketByteBuf buf) {
 
     }
 
     @Override
-    public void write(PacketByteBuf buf) throws IOException {
+    public void write(PacketByteBuf buf) {
 
     }
 
     @Override
-    public void apply(ClientPlayPacketListener listener) {
+    public void apply(PacketListener listener) {
         ((IClientPlayNetworkHandler) listener).onFallFlying(this);
     }
 }

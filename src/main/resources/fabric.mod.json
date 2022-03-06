@@ -12,7 +12,7 @@
     "sources": "https://github.com/Legacy-Fabric/legacy-elytras"
   },
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -24,7 +24,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.12.0",
-    "minecraft": "1.8.9"
+    "minecraft": "1.8"
   },
   "suggests": {
     "another-mod": "*"

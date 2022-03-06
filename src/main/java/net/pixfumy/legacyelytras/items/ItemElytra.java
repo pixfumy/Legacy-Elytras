@@ -2,12 +2,13 @@ package net.pixfumy.legacyelytras.items;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.itemgroup.ItemGroup;
 import net.minecraft.world.World;
 
 public class ItemElytra extends ArmorItem {
-    public ItemElytra(Material material, int materialId, int slot) {
+    public ItemElytra(ArmorMaterial material, int materialId, int slot) {
         super(material, materialId, slot);
         this.maxCount = 1;
         this.damageable = true;

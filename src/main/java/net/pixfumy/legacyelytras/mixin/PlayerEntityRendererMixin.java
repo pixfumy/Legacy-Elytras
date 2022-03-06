@@ -6,6 +6,7 @@ import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -16,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntityRenderer.class)
-public class PlayerEntityRendererMixin extends LivingEntityRenderer<AbstractClientPlayerEntity> {
+public class PlayerEntityRendererMixin extends LivingEntityRenderer {
     public PlayerEntityRendererMixin(EntityRenderDispatcher dispatcher, EntityModel model, float shadowSize) {
         super(dispatcher, model, shadowSize);
     }
@@ -41,7 +42,10 @@ public class PlayerEntityRendererMixin extends LivingEntityRenderer<AbstractClie
     }
 
     @Override
-    public Identifier getTexture(AbstractClientPlayerEntity abstractClientPlayerEntity) {
-        return abstractClientPlayerEntity.getSkinTexture();
+    public Identifier getTexture(Entity entity) {
+        if (!(entity instanceof AbstractClientPlayerEntity)){
+            return null;
+        }
+        return ((AbstractClientPlayerEntity)entity).getSkinTexture();
     }
 }
