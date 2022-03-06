@@ -15,8 +15,6 @@ public class LegacyElytras implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// too lazy to mixin to Item, let's just re-register the item
-		Item.REGISTRY.add(401, new Identifier("fireworks"), FIREWORK_ITEM);
 		Item.REGISTRY.add(9999, new Identifier("elytra"), ELYTRA);
 	}
 }
