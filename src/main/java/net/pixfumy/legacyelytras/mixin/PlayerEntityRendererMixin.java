@@ -41,7 +41,7 @@ public class PlayerEntityRendererMixin extends LivingEntityRenderer<AbstractClie
     }
 
     @Override
-    public Identifier getTexture(AbstractClientPlayerEntity abstractClientPlayerEntity) {
-        return abstractClientPlayerEntity.getSkinTexture();
+    protected Identifier getTexture(AbstractClientPlayerEntity entity) {
+        return null;
     }
 }
