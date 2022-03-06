@@ -15,7 +15,6 @@ public class ServerPlayNetworkHandlerMixin implements IServerPlayNetworkHandler 
 
     @Override
     public void onStartFallFlying(StartFallFlyingC2SPacket packet) {
-        System.out.println("hi");
         ((IPlayerEntity)player).checkFallFlying();
     }
 }
