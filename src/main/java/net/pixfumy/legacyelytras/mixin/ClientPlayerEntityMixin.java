@@ -1,6 +1,7 @@
 package net.pixfumy.legacyelytras.mixin;
 
 import com.mojang.authlib.GameProfile;
+import net.minecraft.class_481;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.input.Input;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -21,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class ClientPlayerEntityMixin {
 	@Shadow public Input input;
 	@Shadow protected MinecraftClient client;
-	public boolean lastJumping;
+	private boolean lastJumping;
 
 	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/input/Input;method_1302()V"), method = "tickMovement")
 	private void setLastJumping(CallbackInfo ci) {

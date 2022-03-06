@@ -5,17 +5,18 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "ItemMixin",
-    //"FireworkItemMixin",
-    //"ServerPlayerEntityMixin",
-    //"ServerPlayNetworkHandlerMixin",
-    //"PlayerEntityMixin",
-    //"ClientPlayNetworkHandlerMixin",
-    //"LivingEntityMixin",
-    //"PlayerEntityRendererMixin",
+    "FireworkItemMixin",
+    "ClientConnectionMixin",
+    "ServerPlayerEntityMixin",
+    "ServerPlayNetworkHandlerMixin",
+    "PlayerEntityMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "LivingEntityMixin",
+    "PlayerEntityRendererMixin",
     "RecipeDispatcherMixin"
   ],
   "client": [
-    //"ClientPlayerEntityMixin"
+    "ClientPlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

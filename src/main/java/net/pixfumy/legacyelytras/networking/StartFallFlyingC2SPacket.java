@@ -5,6 +5,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.Packet;
 import net.minecraft.network.listener.PacketListener;
 import net.minecraft.network.listener.ServerPlayPacketListener;
+import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.util.PacketByteBuf;
 
 import java.io.IOException;
@@ -25,9 +26,8 @@ public class StartFallFlyingC2SPacket extends Packet {
     public void write(PacketByteBuf buf) {
 
     }
-
     @Override
     public void apply(PacketListener listener) {
-        ((IServerPlayNetworkHandler)listener).onStartFallFlying(this);
+        ((IServerPlayNetworkHandler)(ServerPlayNetworkHandler)listener).onStartFallFlying(this);
     }
 }
