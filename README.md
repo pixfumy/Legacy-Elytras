@@ -2,7 +2,7 @@
 
 A Legacy Fabric mod that backports elytras, fireworks, and all of their respective mechanics to 1.7 and 1.8.
 
-# Elytras
+## Elytras
 
 There are two recipes for crafting the elytra:
 
@@ -13,6 +13,6 @@ With the goal in mind of making them a renewable end-game item. Elytras can be r
 
 Unfortunately, due to legacy fabric not supporting custom textures at the moment, the elytra uses a default texture. This may be fixed in a future update.
 
-# Fireworks
+## Fireworks
 
 Because fireworks were added in 1.4, the mod simply adds the flying functionality to them. They can still be obtained in the usual way, crafted with gunpowder and paper. 
