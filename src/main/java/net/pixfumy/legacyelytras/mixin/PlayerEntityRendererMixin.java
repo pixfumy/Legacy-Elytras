@@ -66,9 +66,9 @@ public class PlayerEntityRendererMixin extends LivingEntityRenderer {
         this.field_2134.field_1483 = this.field_2135.field_1483 = this.field_2133.field_1483 = var10 != null ? 1 : 0;
         if (var10 != null && ((AbstractClientPlayerEntity)entity).method_3192() > 0) {
             UseAction var11 = var10.getUseAction();
-            if (var11 == UseAction.BLOCK) {
+            if (var11.toString().equals("block")) {
                 this.field_2134.field_1483 = this.field_2135.field_1483 = this.field_2133.field_1483 = 3;
-            } else if (var11 == UseAction.BOW) {
+            } else if (var11.toString().equals("bow")) {
                 this.field_2134.field_1485 = this.field_2135.field_1485 = this.field_2133.field_1485 = true;
             }
         }
