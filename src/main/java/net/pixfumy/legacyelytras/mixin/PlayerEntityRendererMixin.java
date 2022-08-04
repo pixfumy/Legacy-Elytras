@@ -40,12 +40,4 @@ public class PlayerEntityRendererMixin extends LivingEntityRenderer {
             ci.cancel();
         }
     }
-
-    @Override
-    public Identifier getTexture(Entity entity) {
-        if (!(entity instanceof AbstractClientPlayerEntity)){
-            return null;
-        }
-        return ((AbstractClientPlayerEntity)entity).getSkinTexture();
-    }
 }
