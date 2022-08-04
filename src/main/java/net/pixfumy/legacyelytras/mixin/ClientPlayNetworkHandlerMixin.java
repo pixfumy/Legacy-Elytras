@@ -2,9 +2,8 @@ package net.pixfumy.legacyelytras.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
-import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
-import net.pixfumy.legacyelytras.networking.StartFallFlyingC2SPacket;
+import net.minecraft.entity.player.ClientPlayerEntity;
 import net.pixfumy.legacyelytras.player.IPlayerEntity;
 import net.pixfumy.legacyelytras.networking.FallFlyingS2CPacket;
 import net.pixfumy.legacyelytras.networking.IClientPlayNetworkHandler;

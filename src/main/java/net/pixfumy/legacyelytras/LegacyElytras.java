@@ -3,7 +3,6 @@ package net.pixfumy.legacyelytras;
 import net.fabricmc.api.ModInitializer;
 import net.legacyfabric.fabric.api.registry.v1.RegistryHelper;
 import net.legacyfabric.fabric.api.util.Identifier;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.FireworkItem;
 import net.minecraft.item.itemgroup.ItemGroup;
@@ -15,6 +14,14 @@ public class LegacyElytras implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		RegistryHelper.registerItem(ELYTRA, new Identifier("legacyelytras", "elytra"));
+		register();
+	}
+
+	private static boolean registered = false;
+	public static void register() {
+		if (!registered) {
+			registered = true;
+			RegistryHelper.registerItem(ELYTRA, new Identifier("legacyelytras", "elytra"));
+		}
 	}
 }

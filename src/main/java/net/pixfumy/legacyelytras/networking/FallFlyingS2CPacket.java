@@ -4,7 +4,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.listener.PacketListener;
 import net.minecraft.util.PacketByteBuf;
 
-public class FallFlyingS2CPacket implements Packet {
+public class FallFlyingS2CPacket extends Packet {
     public boolean fallFlying;
 
     public FallFlyingS2CPacket(boolean fallFlying) {

@@ -1,13 +1,8 @@
 package net.pixfumy.legacyelytras.mixin;
 
-import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.entity.model.BiPedModel;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.UseAction;
 import org.lwjgl.opengl.GL11;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModel;
