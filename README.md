@@ -11,7 +11,7 @@ There are two recipes for crafting the elytra:
 
 With the goal in mind of making them a renewable end-game item. Elytras can be repaired using leather in an anvil.
 
-The newest release supports custom textures, but for the speedrunners keep in mind this may have issues and requires Fabric API.
+The newest release takes care of some Fabric API compatibility, but is still not stable enough for me to recommend using in speedruns. The textures still don't work but should be fixed soon.
 
 Also, due to it being impossible to inject into the part of the code that makes an item equippable in an armor slot, elytras are effectively initialized as leather chestplates and they give 1.5 hearts of protection.
 
