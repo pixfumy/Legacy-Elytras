@@ -1,17 +1,11 @@
 package net.pixfumy.legacyelytras.mixin;
 
-import com.mojang.authlib.GameProfile;
-import net.minecraft.class_481;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.input.Input;
-import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.client.network.ClientPlayNetworkHandler;
-import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.player.ClientPlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import net.pixfumy.legacyelytras.items.ItemElytra;
 import net.pixfumy.legacyelytras.networking.StartFallFlyingC2SPacket;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;

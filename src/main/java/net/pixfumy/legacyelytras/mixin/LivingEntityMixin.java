@@ -3,7 +3,7 @@ package net.pixfumy.legacyelytras.mixin;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.pixfumy.legacyelytras.player.IPlayerEntity;
@@ -76,15 +76,15 @@ public abstract class LivingEntityMixin {
         }
     }
 
-    @Inject(method = "readCustomDataFromTag", at = @At("TAIL"))
-    private void readFlying(CompoundTag tag, CallbackInfo ci) {
+    @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
+    private void readFlying(NbtCompound tag, CallbackInfo ci) {
         if ((LivingEntity)(Object)this instanceof PlayerEntity && tag.getBoolean("fallFlying")) {
             ((IPlayerEntity)this).startFallFlying();
         }
     }
 
-    @Inject(method = "writeCustomDataToTag", at = @At("TAIL"))
-    private void writeFlying(CompoundTag tag, CallbackInfo ci) {
+    @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
+    private void writeFlying(NbtCompound tag, CallbackInfo ci) {
         if ((LivingEntity)(Object)this instanceof PlayerEntity) {
             tag.putBoolean("fallFlying", ((IPlayerEntity) this).isFallFlying());
         }
