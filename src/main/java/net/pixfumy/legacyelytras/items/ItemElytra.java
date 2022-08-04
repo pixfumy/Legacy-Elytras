@@ -12,7 +12,6 @@ public class ItemElytra extends ArmorItem {
         this.maxCount = 1;
         this.damageable = true;
         this.setMaxDamage(432);
-        this.setTranslationKey("elytra");
         this.setItemGroup(ItemGroup.MISC);
     }
 
@@ -24,10 +23,5 @@ public class ItemElytra extends ArmorItem {
             stack.count = 0;
         }
         return stack;
-    }
-
-    @Override
-    public String getDisplayName(ItemStack stack) {
-        return "Elytra";
     }
 }

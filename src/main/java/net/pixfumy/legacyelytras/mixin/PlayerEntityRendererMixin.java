@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntityRenderer.class)
-public class PlayerEntityRendererMixin extends LivingEntityRenderer<AbstractClientPlayerEntity> {
+public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<AbstractClientPlayerEntity> {
     public PlayerEntityRendererMixin(EntityRenderDispatcher dispatcher, EntityModel model, float shadowSize) {
         super(dispatcher, model, shadowSize);
     }
@@ -38,10 +38,5 @@ public class PlayerEntityRendererMixin extends LivingEntityRenderer<AbstractClie
             }
             ci.cancel();
         }
-    }
-
-    @Override
-    protected Identifier getTexture(AbstractClientPlayerEntity entity) {
-        return entity.getSkinTexture();
     }
 }

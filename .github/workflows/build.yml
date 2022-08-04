@@ -10,11 +10,8 @@ jobs:
   build:
     strategy:
       matrix:
-        java: [
-            "8",  # Minecraft default
-            "11", # Current Java LTS
-            "17", # Latest version
-          ]
+        java:
+          - 17
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

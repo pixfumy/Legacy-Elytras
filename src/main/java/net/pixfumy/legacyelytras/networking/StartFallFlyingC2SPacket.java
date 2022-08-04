@@ -1,7 +1,6 @@
 package net.pixfumy.legacyelytras.networking;
 
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ClientPlayerEntity;
 import net.minecraft.network.Packet;
 import net.minecraft.network.listener.ServerPlayPacketListener;
 import net.minecraft.util.PacketByteBuf;
