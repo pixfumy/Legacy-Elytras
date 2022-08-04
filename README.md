@@ -13,9 +13,11 @@ With the goal in mind of making them a renewable end-game item. Elytras can be r
 
 Unfortunately, due to legacy fabric not supporting custom textures at the moment, the elytra uses a default texture. This may be fixed in a future update.
 
+Also, due to it being impossible to inject into the part of the code that makes an item equippable in an armor slot, elytras are effectively initialized as leather chestplates and they give 1.5 hearts of protection.
+
 ## Fireworks
 
-Because fireworks were added in 1.4, the mod simply adds the flying functionality to them. They can still be obtained in the usual way, crafted with gunpowder and paper. 
+Because fireworks were added in 1.4, the mod simply adds the flying functionality to them. They can still be obtained in the usual way, crafted with gunpowder and paper. Note that fireworks are not available in the creative menu, they can only be obtained via commands or crafting.
 
 ## Technical Details
 
