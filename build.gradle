@@ -28,12 +28,12 @@ loom {
 	// Only needed for versions not available from vanilla launcher by default.
 	// customMinecraftManifest.set("https://meta.legacyfabric.net/v2/manifest/${minecraft_version}")
 
-	// Required by 1.7.x
-	// runs {
-	// 	client {
-	// 		programArgs "--userProperties", "{}"
-	// 	}
-	// }
+	// Required by 1.7.x and 1.8.0
+	 runs {
+	 	client {
+	 		programArgs "--userProperties", "{}"
+	 	}
+	 }
 }
 
 def lwjgl2 = !project.minecraft_version.startsWith("1.13")

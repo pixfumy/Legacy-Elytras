@@ -1,10 +1,8 @@
 package net.pixfumy.legacyelytras.networking;
 
 import net.minecraft.network.Packet;
-import net.minecraft.network.listener.ClientPlayPacketListener;
+import net.minecraft.network.listener.PacketListener;
 import net.minecraft.util.PacketByteBuf;
-
-import java.io.IOException;
 
 public class FallFlyingS2CPacket implements Packet {
     public boolean fallFlying;
