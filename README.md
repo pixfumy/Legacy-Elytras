@@ -2,6 +2,8 @@
 
 A Legacy Fabric mod that backports elytras, fireworks, and all of their respective mechanics to 1.7 and 1.8.
 
+NOTE: You will need version 1.0 if you're using this for Icarus.
+
 ## Elytras
 
 There are two recipes for crafting the elytra:
